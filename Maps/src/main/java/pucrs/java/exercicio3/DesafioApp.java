@@ -22,6 +22,14 @@ public class DesafioApp {
 		System.out.println("-------------------------------");
 		
 		intersectMap();
+		
+		System.out.println("-------------------------------");
+		
+		diffList();
+		
+		System.out.println("-------------------------------");
+		
+		
 	}
 	
 	private static void exercicioUnionList() {
@@ -74,7 +82,7 @@ public class DesafioApp {
 		System.out.println(unionMaps(listaMap,listaMap2));
 		long endTimeMap = System.nanoTime();
 		
-		System.out.println("Tempo de execução ArrayList: " + (endTimeMap - startTimeMap));
+		System.out.println("Tempo de execução Maps: " + (endTimeMap - startTimeMap));
 	}
 	
 	public static Map<Integer, Integer> unionMaps(Map<Integer, Integer> l1, Map<Integer, Integer> l2){
@@ -135,7 +143,7 @@ public class DesafioApp {
 		System.out.println(intersectMap(listaMap,listaMap2));
 		long endTimeMap = System.nanoTime();
 		
-		System.out.println("Tempo de execução ArrayList: " + (endTimeMap - startTimeMap));
+		System.out.println("Tempo de execução Maps: " + (endTimeMap - startTimeMap));
 	}
 	
 	public static Map<Integer,Integer> intersectMap(Map<Integer,Integer> l1, Map<Integer,Integer> l2){
@@ -143,4 +151,30 @@ public class DesafioApp {
 		resposta.keySet().retainAll(l2.keySet());	
 		return resposta;
 	}
+
+	private static void diffList() {
+		ArrayList<Integer> listaDiff = new ArrayList<Integer>();
+		listaDiff.add(1);
+		listaDiff.add(2);
+		listaDiff.add(3);
+		listaDiff.add(4);
+		ArrayList<Integer> listaDiff2 = new ArrayList<Integer>();
+		listaDiff2.add(1);
+		listaDiff2.add(4);
+		listaDiff2.add(5);
+		
+		long startTimeIntersect = System.nanoTime();
+		System.out.println("Método Diff ArrayList");
+		System.out.println(diff(listaDiff,listaDiff2));
+		long endTimeIntersect = System.nanoTime();
+		
+		System.out.println("Tempo de execução ArrayList: " + (endTimeIntersect - startTimeIntersect));
+	}
+	
+	public static ArrayList<Integer> diff(ArrayList<Integer> l1, ArrayList<Integer> l2){
+		ArrayList<Integer> resposta = new ArrayList<Integer>();
+		
+		return resposta;
+	}
 }
+
