@@ -3,6 +3,7 @@ package pucrs.java.exercicio3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class DesafioApp {
 
@@ -17,11 +18,13 @@ public class DesafioApp {
 		System.out.println("-------------------------------");
 				
 		intersectList();
+		
+		System.out.println("-------------------------------");
+		
+		intersectMap();
 	}
-
-
-
-	public static void exercicioUnionList() {
+	
+	private static void exercicioUnionList() {
 		ArrayList<Integer> lista1 = new ArrayList<Integer>();
 		lista1.add(1);
 		lista1.add(2);
@@ -54,9 +57,8 @@ public class DesafioApp {
 		}		
 		return resposta;
 	}
-
 	
-	public static void unionMaps() {
+	private static void unionMaps() {
 		Map<Integer,Integer> listaMap = new HashMap<Integer,Integer>();
 		listaMap.put(1, 1);
 		listaMap.put(2, 2);
@@ -82,7 +84,7 @@ public class DesafioApp {
 		return resposta;
 	}
 	
-	public static void intersectList() {
+	private static void intersectList() {
 		ArrayList<Integer> listaIntersect = new ArrayList<Integer>();
 		listaIntersect.add(1);
 		listaIntersect.add(2);
@@ -114,6 +116,31 @@ public class DesafioApp {
 				}
 			}
 		}				
+		return resposta;
+	}
+	
+	private static void intersectMap() {
+		Map<Integer,Integer> listaMap = new HashMap<Integer,Integer>();
+		listaMap.put(1, 1);
+		listaMap.put(2, 2);
+		listaMap.put(3, 3);
+		
+		Map<Integer,Integer> listaMap2 = new HashMap<Integer,Integer>();
+		listaMap2.put(1, 1);
+		listaMap2.put(2, 2);
+		listaMap2.put(6, 6);
+		
+		long startTimeMap = System.nanoTime();
+		System.out.println("Método União Maps");
+		System.out.println(intersectMap(listaMap,listaMap2));
+		long endTimeMap = System.nanoTime();
+		
+		System.out.println("Tempo de execução ArrayList: " + (endTimeMap - startTimeMap));
+	}
+	
+	public static Map<Integer,Integer> intersectMap(Map<Integer,Integer> l1, Map<Integer,Integer> l2){
+		Map<Integer, Integer> resposta = new HashMap<Integer, Integer>(l1);
+		resposta.keySet().retainAll(l2.keySet());	
 		return resposta;
 	}
 }
